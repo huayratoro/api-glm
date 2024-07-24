@@ -2,12 +2,13 @@ from aux import *
 import s3fs
 import numpy as np
 import pandas as pd
+from datetime import datetime, timedelta
 from multiprocessing import Pool, set_start_method
 
 #---------------------------------------------------------
 # Vars
-fini = "2020-04-02T06:00:00" 
-ffin = "2020-04-02T08:00:00" 
+fini = datetime.now() + timedelta(hours=3) - timedelta(minutes=5)
+ffin = datetime.now()  + timedelta(hours=3)
 n_cores = 10
 path_salida = "downloads/"
 

@@ -21,25 +21,31 @@ def generate_red_gradient(N):
     
     return gradient
 
-# # Example usage
-# N = 10
-# colors = generate_red_gradient(N)
-# print(colors)
-
 import glob
 import matplotlib.pyplot as plt
 import xarray as xr
 
-list_files = sorted(glob.glob("downloads/"))
-# listac olores
+N = 5
+list_files = sorted(glob.glob("downloads/*.nc"))[:N]
+# lista colores
+colores = generate_red_gradient(len(list_files))
 
-for f in list_files[:3]:
+f, ax = plt.subplots()
+
+i = 0
+for f in list_files:
     
     df = xr.open_dataset(f)
 
-    f, ax = plt.subplots()
-
     ax.scatter(
         df["event_lon"].values,
-        df["event_lon"].values
+        df["event_lat"].values,
+        color = colores[i], marker = "+"
     )
+    i = i + 1
+
+ax.set_xlim(-69, -60)
+ax.set_ylim(-26, -20)
+
+plt.savefig("assets/test.png")
+plt.close()
