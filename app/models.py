@@ -7,9 +7,11 @@ from multiprocessing import Pool, set_start_method
 
 #---------------------------------------------------------
 # Vars
-fini = datetime.now() + timedelta(hours=3) - timedelta(minutes=5)
-ffin = datetime.now()  + timedelta(hours=3)
-n_cores = 10
+# fini = datetime.now() + timedelta(hours=3) - timedelta(minutes=5)
+# ffin = datetime.now()  + timedelta(hours=3)
+fini = "2026-01-05T19:00:00" # 2026-01-05T23:50:00
+ffin = "2026-01-05T23:50:00"
+n_cores = 2
 path_salida = "downloads/"
 
 #---------------------------------------------------------
